@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Motor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .property-group {
+            margin-bottom: 10px;
+        }
+        .property-group select, .property-group input[type="text"] {
+            min-width: 200px; /* Set a maximum width to avoid overflow */
+        }
+        .menu-toggle {
+            display: none;
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">Motor Management</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/add-motors">Add Motor</a></li>
+                <li><a href="view-motors">View Motors</a></li>
+                <li><a href="history">History</a></li>
+            </ul>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+    <h1>Add Motor</h1>
+
+    <!-- Add Motor Form -->
+    <form id="addMotorForm">
+        <div id="propertyContainer">
+            <!-- Dynamic property fields will be added here -->
+        </div>
+        <button type="button" id="addProperty">Add Property</button>
+        <button type="submit">Add Motor</button>
+
+        <div id="cardCount">Number of cards: 0</div>
+        <div id="motorCards">
+            
+        </div>
+    </form>
+
+    <script src="{{ url_for('static', filename='js/add_motor.js') }}"></script>
+</body>
+</html>

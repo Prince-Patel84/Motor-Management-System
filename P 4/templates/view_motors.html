@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Motors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .filter-group {
+            margin-bottom: 10px;
+        }
+        .filter-group select, .filter-group input[type="text"] {
+            margin-right: 5px;
+        }
+        #cardCount {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .menu-toggle {
+            display: none;
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+     <header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="logo">Motor Management</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/add-motors">Add Motor</a></li>
+                <li><a href="/view-motors">View Motors</a></li>
+                <li><a href="/contact-us">Contact Us</a></li>
+            </ul>
+            <button class="menu-toggle" id="toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+</header>
+    <h1>View Motors</h1>
+
+    <!-- Filter Form -->
+    <form id="filterForm">
+        <div id="filterContainer">
+            <!-- Dynamic filter fields will be added here -->
+        </div>
+        <button type="button" id="addFilter">Add Filter</button>
+        <button type="submit">Apply Filters</button>
+        <div id="cardCount">Number of cards: 0</div>
+        <div id="motorCards"></div>
+    </form>
+
+    
+    
+    <script src="{{ url_for('static', filename='js/view_motors.js') }}"></script>
+
+    <footer>
+        <p>&copy; 2024 Electric Motor Management System | <a href="/contact-us">Help</a> | <a href="/contact-us">Contact</a></p>
+    </footer>
+
+</body>
+</html>
+

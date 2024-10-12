@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Motor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Add Motor</h1>
+    <form id="addMotorForm">
+        <input type="text" name="location" placeholder="Location" required>
+        <input type="text" name="use_of_motor" placeholder="Use Of Motor" required>
+        <input type="text" name="serial_no" placeholder="Serial No." required>
+        <input type="text" name="spm_no" placeholder="SPM No." required>
+        <input type="number" step="any" name="kw" placeholder="KW" required>
+        <input type="number" step="any" name="flc" placeholder="FLC" required>
+        <input type="number" step="any" name="rpm" placeholder="RPM" required>
+        <input type="text" name="fr_size" placeholder="Fr. Size" required>
+        <input type="text" name="make" placeholder="Make" required>
+        <input type="text" name="bearing_de" placeholder="Bearing (DE)" required>
+        <input type="text" name="bearing_nde" placeholder="Bearing (NDE)" required>
+        <input type="text" name="cooling_fan" placeholder="Cooling Fan" required>
+        <input type="text" name="fan_cover" placeholder="Fan Cover" required>
+        <input type="text" name="terminal_block" placeholder="Terminal Block" required>
+        <input type="text" name="mounting" placeholder="Mounting" required>
+        <input type="date" name="oh_date" placeholder="O/H (DATE)" required>
+        <button type="submit">Add Motor</button>
+    </form>
+    <script src="{{ url_for('static', filename='js/add_motor.js') }}"></script>
+</body>
+</html>

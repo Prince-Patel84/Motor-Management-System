@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Motors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .filter-group {
+            margin-bottom: 10px;
+        }
+        .filter-group select, .filter-group input[type="text"] {
+            margin-right: 5px;
+        }
+        #cardCount {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>View Motors</h1>
+
+    <!-- Filter Form -->
+    <form id="filterForm">
+        <div id="filterContainer">
+            <!-- Dynamic filter fields will be added here -->
+        </div>
+        <button type="button" id="addFilter">Add Filter</button>
+        <button type="submit">Apply Filters</button>
+    </form>
+
+    <div id="cardCount">Number of cards: 0</div>
+    <div id="motorCards"></div>
+    
+    <script src="{{ url_for('static', filename='js/view_motors.js') }}"></script>
+</body>
+</html>
+

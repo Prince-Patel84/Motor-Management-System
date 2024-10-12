@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Motor Management System</title>
+    <style>
+        /* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+.menu-toggle {
+    display: none;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive Styles for Smaller Devices */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        display: none; /* Hide by default on mobile */
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Hero Section */
+.hero {
+    background: #f4f4f4;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.cta-btn:hover {
+    background: #45a049;
+}
+
+/* Quick Stats Section */
+.quick-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background: #f4f4f4;
+}
+
+.stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 30%;
+}
+
+.stat-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Recent Activity Section */
+.recent-activity {
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.recent-activity h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.recent-activity table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.recent-activity th, .recent-activity td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.recent-activity th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.recent-activity tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: white;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .quick-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+   <!-- Navigation Bar -->
+   <nav class="navbar">
+    <div class="navbar-container">
+        <a href="#" class="logo">Motor Management</a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/add-motors">Add Motor</a></li>
+            <li><a href="view-motors">View Motors</a></li>
+            <li><a href="history">History</a></li>
+        </ul>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+</nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Electric Motor Management System</h1>
+        <p>Track and manage your motors effortlessly.</p>
+        <a href="/add-motors" class="cta-btn">Add New Motor</a>
+    </section>
+
+    <section class="quick-stats">
+        <div class="stat-card">
+            <h3>Total Motors</h3>
+            <p id="total-motors">Loading...</p>
+        </div>
+        <div class="stat-card">
+            <h3>Maintenance Due</h3>
+            <p id="maintenance-due">Loading...</p>
+        </div>
+        <div class="stat-card">
+            <h3>Last Serviced</h3>
+            <p id="last-serviced">Loading...</p>
+        </div>
+    </section>
+
+    <!-- Recent Activity Section -->
+    <section class="recent-activity">
+        <h2>Recent Motor Activity</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Motor</th>
+                    <th>Activity</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2024-09-14</td>
+                    <td>Motor A</td>
+                    <td>Added</td>
+                    <td>Factory 1</td>
+                </tr>
+                <tr>
+                    <td>2024-09-12</td>
+                    <td>Motor B</td>
+                    <td>Serviced</td>
+                    <td>Factory 2</td>
+                </tr>
+                <!-- More rows can be dynamically inserted here -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Electric Motor Management System | <a href="#">Help</a> | <a href="#">Contact</a></p>
+    </footer>
+
+    <!-- Add your JavaScript here if necessary -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

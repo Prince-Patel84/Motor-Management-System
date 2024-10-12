@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Motors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>View Motors</h1>
+    
+    <!-- Filter Form -->
+    <form id="filterForm">
+        <input type="text" name="Location" placeholder="Filter by Location">
+        <input type="text" name="Use Of Motor" placeholder="Filter by Use Of Motor">
+        <input type="text" name="Serial No." placeholder="Filter by Serial No.">
+        <input type="text" name="SPM No." placeholder="Filter by SPM No.">
+        <input type="text" name="KW" placeholder="Filter by KW">
+        <input type="text" name="FLC" placeholder="Filter by FLC">
+        <input type="text" name="RPM" placeholder="Filter by RPM">
+        <input type="text" name="Fr. Size" placeholder="Filter by Fr. Size">
+        <input type="text" name="Make" placeholder="Filter by Make">
+        <input type="text" name="Bearing (DE)" placeholder="Filter by Bearing (DE)">
+        <input type="text" name="Bearing (NDE)" placeholder="Filter by Bearing (NDE)">
+        <input type="text" name="Cooling Fan" placeholder="Filter by Cooling Fan">
+        <input type="text" name="Fan Cover" placeholder="Filter by Fan Cover">
+        <input type="text" name="Terminal Block" placeholder="Filter by Terminal Block">
+        <input type="text" name="Mounting" placeholder="Filter by Mounting">
+        <input type="date" name="O/H (DATE)" placeholder="Filter by O/H (DATE)">
+        <button type="submit">Apply Filters</button>
+    </form>
+
+    <div id="motorCards"></div>
+    
+    <script src="{{ url_for('static', filename='js/view_motors.js') }}"></script>
+</body>
+</html>
